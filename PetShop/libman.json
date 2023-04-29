@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "mui@3.7.1",
+      "destination": "lib/mui/"
+    },
+    {
+      "library": "bootstrap@5.2.3",
+      "destination": "lib/bootstrap/"
+    }
+  ]
+}
