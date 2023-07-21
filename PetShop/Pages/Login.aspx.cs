@@ -13,24 +13,34 @@ namespace PetShop.Pages
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             Auth auth = new Auth();
-            var user = auth.LoginUser(txtBoxLogin.Text.ToLower().Trim(), txtBoxPassword.Text.Trim());
 
-            if (user == null)
-                lblUserNotExist.Visible = true;
 
-            if(user == true)
-            {
-                Session["WebMaster"] = "true";
-                Response.Redirect("Logued.aspx");
-            }
-
-            if (user == false)
-            {
-                Session["WebMaster"] = "false";
-                Response.Redirect("Logued.aspx");
-            }
+            var usuarioEncriptado = auth.ObtenerUsuarioEncriptado(txtBoxLogin.Text.ToUpper().Trim(), txtBoxPassword.Text.Trim());
 
             
+
+            if (usuarioEncriptado.TieneAccesso)
+            {
+                if (usuarioEncriptado.WebMaster)
+                {
+                    Session["WebMaster"] = "true";
+                    Session["Username"] = txtBoxLogin.Text.ToUpper().Trim();
+                    auth.InsertarBitacora(txtBoxLogin.Text.ToUpper().Trim(), "BAJO", "Ingresó al sistema");
+                    Response.Redirect("Logued.aspx");
+                }
+
+                if (!usuarioEncriptado.WebMaster)
+                {
+                    Session["WebMaster"] = "false";
+                    Session["Username"] = txtBoxLogin.Text.ToUpper().Trim();
+                    auth.InsertarBitacora(txtBoxLogin.Text.ToUpper().Trim(), "BAJO", "Ingresó al sistema");
+                    Response.Redirect("Logued.aspx");
+                }
+            }
+
+            if(!usuarioEncriptado.TieneAccesso)
+                lblUserNotExist.Visible = true; 
+
         }
 
         protected void Unnamed5_Click(object sender, EventArgs e)

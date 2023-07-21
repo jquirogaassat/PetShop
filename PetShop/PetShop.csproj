@@ -382,6 +382,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="backup\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -395,6 +396,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{D96037C0-A1C0-4977-8412-8F1CB003A9F7}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{ad0bb7f6-7632-443b-9111-3732685ecc6d}</Project>
       <Name>Services</Name>

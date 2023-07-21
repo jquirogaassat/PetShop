@@ -12,7 +12,19 @@
             Se logueo un usuario <asp:Label ID="lblWebMaster" runat="server" />
             <br />
             <asp:Label ID="lblDBBroken" runat="server" />
-            <asp:Button ID="btnCorrectDB" runat="server" Text="Arreglar BD" OnClick="btnCorrect" />
+            <asp:Button ID="btnCorrectDB" runat="server" Text="Arreglar BD" OnClick="btnCorrectAction" />
+            <br />
+            <asp:Button ID="btnBackup" runat="server" Text="Realizar BackUp" OnClick="btnBackUp" /> 
+            <br />
+            <br />
+            <asp:Button ID="btnRestore" runat="server" Text="Realizar Restore" OnClick="btnRestoreDB" />
+            <br />
+            <br />
+              <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="True" GridLines="None"
+                AllowPaging="true" CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"
+                PageSize="200">
+
+            </asp:GridView>
         </div>
     </form>
 </body>

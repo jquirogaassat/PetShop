@@ -8,12 +8,17 @@ namespace Models
 {
     public class Usuario
     {
+        public Usuario() { }
+
+        public Usuario(string contraseña, bool webMaster)
+        {
+            Contraseña = contraseña;
+            WebMaster = webMaster;
+        }
         public long IDUsuario { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public string Direccion { get; set; }
-        public string Telefono { get; set; }
+        public string Contraseña { get; set; }
         public bool WebMaster { get; set; }
         public int DigitoVerificador { get; set; }
+        public bool TieneAccesso { get; set; }
     }
 }
